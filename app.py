@@ -77,8 +77,8 @@ if st.button("Predict Star Type"):
     input_data = input_data.drop(columns=["S.No."])
 
     try:
-        input_prepared = full_pipeline.fit_transform(input_data)  # Only fit here if not saved
+        input_prepared = full_pipeline.transform(input_data)  
         prediction = model.predict(input_prepared)[0]
-        st.success(f"🌟 Predicted Star Type: **{prediction}**")
+        st.success(f"Predicted Star Type: **{prediction}**")
     except Exception as e:
         st.error(f"Prediction failed: {e}")
